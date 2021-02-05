@@ -47,8 +47,16 @@ export default {
     '@nuxtjs/vuetify',
   ],
 
+  eslint: {
+    cache: false,
+  },
+
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [],
+
+  publicRuntimeConfig: {
+    key: process.env.KEY,
+  },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {
