@@ -4,6 +4,7 @@
       <h1 class="main-title">ScrapMeals</h1>
       <p class="subtitle">Turn Scraps into Scrumptious!</p>
     </v-col>
+    <Autocomplete />
   </v-row>
 </template>
 
