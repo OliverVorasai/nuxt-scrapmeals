@@ -55,6 +55,7 @@ export default {
   modules: [],
 
   publicRuntimeConfig: {
+    baseUrl: process.env.URL || 'https://api.spoonacular.com',
     key: process.env.KEY,
   },
 

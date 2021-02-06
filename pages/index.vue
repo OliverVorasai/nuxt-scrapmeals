@@ -4,7 +4,12 @@
       <h1 class="main-title">ScrapMeals</h1>
       <p class="subtitle">Turn Scraps into Scrumptious!</p>
     </v-col>
-    <Autocomplete />
+    <v-col cols="12" sm="8">
+      <recipe-search></recipe-search>
+    </v-col>
+    <v-col cols="12" sm="8">
+      <recipe-grid :recipes="$store.state.recipes"></recipe-grid>
+    </v-col>
   </v-row>
 </template>
 
