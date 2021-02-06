@@ -9,11 +9,21 @@
       hide-selected
       label="Search for ingredients"
       :prepend-inner-icon="mdiDatabaseSearch"
-      outlined
       chips
       small-chips
       multiple
     >
+      <template #selection="data">
+        <v-chip
+          v-bind="data.attrs"
+          :input-value="data.selected"
+          close
+          @click="data.select"
+          @click:close="remove(data.item)"
+        >
+          {{ data.item }}
+        </v-chip>
+      </template>
     </v-autocomplete>
   </v-col>
 </template>
@@ -70,6 +80,12 @@ export default {
         .finally(() => {
           this.isLoading = false
         })
+    },
+  },
+  methods: {
+    remove(item) {
+      const index = this.selectedValues.indexOf(item)
+      if (index >= 0) this.selectedValues.splice(index, 1)
     },
   },
 }
