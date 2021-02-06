@@ -57,6 +57,7 @@ export default {
   publicRuntimeConfig: {
     baseUrl: process.env.URL || 'https://api.spoonacular.com',
     key: process.env.KEY,
+    recipeLimit: process.env.RECIPE_LIMIT || '50',
   },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify

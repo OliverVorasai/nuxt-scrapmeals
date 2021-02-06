@@ -97,17 +97,16 @@ export default {
     },
     getRecipes() {
       const ingredients = this.selectedValues.toString()
-      const recipeLimit = 10
       const noCopyright = true
 
-      if (!this.selectedValues) return
+      if (this.selectedValues.length < 1) return
 
       if (this.recipesLoading) return
 
       this.recipesLoading = true
 
       fetch(
-        `${this.$config.baseUrl}/recipes/findByIngredients?apiKey=${this.$config.key}&ingredients=${ingredients}&number=${recipeLimit}&limitLicense=${noCopyright}&ranking=1`,
+        `${this.$config.baseUrl}/recipes/findByIngredients?apiKey=${this.$config.key}&ingredients=${ingredients}&number=${this.$config.recipeLimit}&limitLicense=${noCopyright}&ranking=1`,
         { cache: 'force-cache' }
       )
         .then((res) => {
