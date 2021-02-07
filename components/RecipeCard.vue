@@ -29,9 +29,9 @@
       <v-card-actions>
         <v-btn
           class="text-caption"
-          @click="show = !show"
           width="100%"
           depressed
+          @click="show = !show"
         >
           Show More Ingredients
           <v-icon right>
