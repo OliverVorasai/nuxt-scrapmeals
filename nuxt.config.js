@@ -56,7 +56,7 @@ export default {
 
   publicRuntimeConfig: {
     autocompleteUrl: process.env.AUTOCOMPLETE_URL,
-    recipeSearchUrl: process.env.RECIPE_SEARCH_URL,
+    findByIngredientsUrl: process.env.FIND_BY_INGREDIENTS_URL,
     key: process.env.KEY,
     recipeLimit: process.env.RECIPE_LIMIT || '50',
   },

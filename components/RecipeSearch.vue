@@ -117,7 +117,7 @@ export default {
         ranking: 1,
       })
 
-      fetch(`${this.$config.recipeSearchUrl}?${params.toString()}`, {
+      fetch(`${this.$config.findByIngredientsUrl}?${params.toString()}`, {
         cache: 'force-cache',
       })
         .then((res) => {
