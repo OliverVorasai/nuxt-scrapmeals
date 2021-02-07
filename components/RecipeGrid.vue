@@ -1,8 +1,5 @@
 <template>
   <v-row justify="center">
-    <v-col cols="12" class="text-center">
-      <h2>The Recipes</h2>
-    </v-col>
     <template v-for="recipe in recipes">
       <recipe-card :key="recipe.id" :recipe="recipe"></recipe-card>
     </template>
