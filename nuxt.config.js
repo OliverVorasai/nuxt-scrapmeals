@@ -55,7 +55,8 @@ export default {
   modules: [],
 
   publicRuntimeConfig: {
-    baseUrl: process.env.URL || 'https://api.spoonacular.com',
+    autocompleteUrl: process.env.AUTOCOMPLETE_URL,
+    recipeSearchUrl: process.env.RECIPE_SEARCH_URL,
     key: process.env.KEY,
     recipeLimit: process.env.RECIPE_LIMIT || '50',
   },

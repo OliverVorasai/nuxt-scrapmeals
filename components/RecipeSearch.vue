@@ -67,10 +67,15 @@ export default {
 
       this.autocompleteLoading = true
 
-      fetch(
-        `${this.$config.baseUrl}/food/ingredients/autocomplete?apiKey=${this.$config.key}&query=${val}&number=5`,
-        { cache: 'force-cache' }
-      )
+      const params = new URLSearchParams({
+        apiKey: this.$config.key,
+        query: val,
+        number: 5,
+      })
+
+      fetch(`${this.$config.autocompleteUrl}?${params.toString()}`, {
+        cache: 'force-cache',
+      })
         .then((res) => {
           if (res.ok) {
             return res.json()
@@ -96,7 +101,6 @@ export default {
       if (index >= 0) this.selectedValues.splice(index, 1)
     },
     getRecipes() {
-      const ingredients = this.selectedValues.toString()
       const noCopyright = true
 
       if (this.selectedValues.length < 1) return
@@ -105,10 +109,17 @@ export default {
 
       this.recipesLoading = true
 
-      fetch(
-        `${this.$config.baseUrl}/recipes/findByIngredients?apiKey=${this.$config.key}&ingredients=${ingredients}&number=${this.$config.recipeLimit}&limitLicense=${noCopyright}&ranking=1`,
-        { cache: 'force-cache' }
-      )
+      const params = new URLSearchParams({
+        apiKey: this.$config.key,
+        ingredients: this.selectedValues.toString(),
+        number: this.$config.recipeLimit,
+        limitLicense: noCopyright.toString(),
+        ranking: 1,
+      })
+
+      fetch(`${this.$config.recipeSearchUrl}?${params.toString()}`, {
+        cache: 'force-cache',
+      })
         .then((res) => {
           if (res.ok) {
             return res.json()
