@@ -1,13 +1,14 @@
 <template>
   <v-app>
-    <v-app-bar fixed flat app color="transparent">
+    <v-app-bar fixed flat app color="secondary">
       <v-row justify="center" align="center">
         <v-btn
           v-for="item in items"
           :key="item.title"
           :to="item.to"
           :aria-label="item.title"
-          color="transparent"
+          color="primary"
+          class="mx-2"
           depressed
           exact
           nuxt
@@ -53,9 +54,9 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 #app {
-  background-color: #95e1d3;
+  background-color: $secondary;
   background-image: url('~@/assets/svg/confetti-doodles.svg');
 }
 </style>
