@@ -1,8 +1,13 @@
 <template>
   <v-row justify="center">
-    <template v-for="recipe in recipes">
+    <template v-for="recipe in recipeList">
       <recipe-card :key="recipe.id" :recipe="recipe"></recipe-card>
     </template>
+    <v-col v-if="recipes.length > 0" cols="12" class="text-center">
+      <v-btn v-show="displayCount < recipes.length" @click="loadMore">
+        See More Recipes
+      </v-btn>
+    </v-col>
   </v-row>
 </template>
 
@@ -15,6 +20,21 @@ export default {
       type: Array,
       required: false,
       default: () => [],
+    },
+  },
+  data() {
+    return {
+      displayCount: 10,
+    }
+  },
+  computed: {
+    recipeList() {
+      return this.recipes.slice(0, this.displayCount)
+    },
+  },
+  methods: {
+    loadMore() {
+      this.displayCount += 10
     },
   },
 }

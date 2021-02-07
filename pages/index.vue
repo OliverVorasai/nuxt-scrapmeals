@@ -1,5 +1,5 @@
 <template>
-  <v-row justify="center" align="center">
+  <v-row justify="center" align="center" class="mb-12">
     <v-col cols="12" sm="8" class="text-center">
       <h1 class="main-title">ScrapMeals</h1>
       <p class="subtitle">Turn Scraps into Scrumptious!</p>
@@ -7,7 +7,7 @@
     <v-col cols="12" sm="8">
       <recipe-search></recipe-search>
     </v-col>
-    <v-col cols="12" sm="8">
+    <v-col cols="12" xl="8">
       <recipe-grid :recipes="$store.state.recipes"></recipe-grid>
     </v-col>
   </v-row>
