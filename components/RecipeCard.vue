@@ -27,13 +27,10 @@
     </template>
     <template v-if="recipe.missedIngredients.length > 3">
       <v-card-actions>
-        <v-btn
-          class="text-caption"
-          width="100%"
-          depressed
-          @click="show = !show"
-        >
-          Show More Ingredients
+        <v-btn :to="`recipe/${recipe.id}`" depressed nuxt>Recipe</v-btn>
+        <v-spacer></v-spacer>
+        <v-btn class="text-caption" depressed @click="show = !show">
+          Ingredients
           <v-icon right>
             {{ show ? mdiChevronUp : mdiChevronDown }}
           </v-icon>
@@ -56,6 +53,11 @@
           </v-list-item>
         </div>
       </v-expand-transition>
+    </template>
+    <template v-else>
+      <v-card-actions>
+        <v-btn :to="`recipe/${recipe.id}`" depressed nuxt>Recipe</v-btn>
+      </v-card-actions>
     </template>
   </v-card>
 </template>
