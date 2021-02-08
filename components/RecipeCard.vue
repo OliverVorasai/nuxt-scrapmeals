@@ -1,6 +1,11 @@
 <template>
   <v-card width="300" class="ma-6" height="100%">
-    <v-img class="white--text align-end" height="200px" :src="recipe.image">
+    <v-img
+      class="white--text align-end"
+      height="200px"
+      :src="recipe.image"
+      :lazy-src="require('@/assets/placeholder-image.jpg')"
+    >
       <v-card-title class="card-title">{{ recipe.title }}</v-card-title>
     </v-img>
     <template v-if="recipe.missedIngredients.length">
@@ -12,7 +17,14 @@
         :key="missedIngredient.id"
       >
         <v-list-item-avatar>
-          <v-img :src="missedIngredient.image"></v-img>
+          <v-img :src="missedIngredient.image">
+            <template #placeholder>
+              <v-img
+                :src="require('@/assets/placeholder-image.jpg')"
+                eager
+              ></v-img>
+            </template>
+          </v-img>
         </v-list-item-avatar>
 
         <v-list-item-content>
@@ -44,7 +56,13 @@
             :key="missedIngredient.id"
           >
             <v-list-item-avatar>
-              <v-img :src="missedIngredient.image"></v-img>
+              <v-img :src="missedIngredient.image">
+                <template #placeholder>
+                  <v-img
+                    :src="require('@/assets/placeholder-image.jpg')"
+                    eager
+                  ></v-img> </template
+              ></v-img>
             </v-list-item-avatar>
 
             <v-list-item-content>
