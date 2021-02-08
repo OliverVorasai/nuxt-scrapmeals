@@ -32,6 +32,7 @@
         >Search for Recipes</v-btn
       >
     </v-row>
+    <error-dialog :error-message="errorMessage"></error-dialog>
   </v-card>
 </template>
 
@@ -46,6 +47,7 @@ export default {
     search: null,
     selectedValues: [],
     mdiDatabaseSearch,
+    errorMessage: null,
   }),
   computed: {
     // all the ingredients relevant to the user (currently selected / recently search)
@@ -87,8 +89,7 @@ export default {
           this.entries = res
         })
         .catch((err) => {
-          // TODO: Replace this with popup message
-          console.log(err)
+          this.errorMessage = err
         })
         .finally(() => {
           this.autocompleteLoading = false
@@ -131,8 +132,7 @@ export default {
           this.$store.commit('SET_RECIPES', res)
         })
         .catch((err) => {
-          // TODO: Replace this with popup message
-          console.log(err)
+          this.errorMessage = err
         })
         .finally(() => {
           this.recipesLoading = false
