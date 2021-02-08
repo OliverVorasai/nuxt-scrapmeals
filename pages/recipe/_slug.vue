@@ -15,6 +15,7 @@
         <v-row justify="center">
           <v-img
             :src="recipe.image"
+            :lazy-src="require('@/assets/placeholder-image.jpg')"
             max-width="550"
             class="mx-4 mb-4"
             content-class="recipe-image"
@@ -82,14 +83,18 @@
               class="text-center"
             >
               <v-img
-                :src="
-                  'https://spoonacular.com/cdn/ingredients_100x100/' +
-                  ingredient.image
-                "
+                :src="`${$config.imageUrl}/${ingredient.image}`"
+                :lazy-src="require('@/assets/placeholder-image.jpg')"
                 max-width="100"
                 max-height="100"
                 contain
                 class="mx-auto"
+              >
+                <template #placeholder>
+                  <v-img
+                    :src="require('@/assets/placeholder-image.jpg')"
+                    eager
+                  ></v-img></template
               ></v-img>
               <span>{{ ingredient.originalString }}</span>
             </v-col>
