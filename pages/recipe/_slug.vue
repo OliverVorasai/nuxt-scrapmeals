@@ -69,6 +69,7 @@
         </v-card-text>
 
         <v-card-title>Summary</v-card-title>
+        <!-- eslint-disable-next-line vue/no-v-html -->
         <v-card-text v-html="recipe.summary"></v-card-text>
 
         <v-card-title>Ingredients</v-card-title>
@@ -166,6 +167,14 @@ export default {
         }
       })
       .then((res) => {
+        // Replace links in summary with internal links
+        res.summary = res.summary.replace(/<a href=(".+?")/g, (val) => {
+          const recipeID = /\d{4,}/.exec(val)
+          if (recipeID !== null) {
+            val = `<a href="${window.location.origin}/recipe/${recipeID[0]}"`
+          }
+          return val
+        })
         return res
       })
       .catch((err) => {
