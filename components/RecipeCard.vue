@@ -13,8 +13,11 @@
         recipe.missedIngredients.length + ' more ingredients needed:'
       }}</v-card-text>
       <v-list-item
-        v-for="missedIngredient in recipe.missedIngredients.slice(0, 3)"
-        :key="missedIngredient.id"
+        v-for="(missedIngredient, index) in recipe.missedIngredients.slice(
+          0,
+          3
+        )"
+        :key="missedIngredient.id + `index${index}`"
       >
         <v-list-item-avatar>
           <v-img :src="missedIngredient.image">
@@ -52,8 +55,10 @@
         <div v-show="show">
           <v-divider></v-divider>
           <v-list-item
-            v-for="missedIngredient in recipe.missedIngredients.slice(3)"
-            :key="missedIngredient.id"
+            v-for="(missedIngredient, index) in recipe.missedIngredients.slice(
+              3
+            )"
+            :key="missedIngredient.id + `index${index}`"
           >
             <v-list-item-avatar>
               <v-img :src="missedIngredient.image">
