@@ -1,7 +1,10 @@
 <template>
   <v-row justify="center">
-    <template v-for="recipe in recipeList">
-      <recipe-card :key="recipe.id" :recipe="recipe"></recipe-card>
+    <template v-for="(recipe, index) in recipeList">
+      <recipe-card
+        :key="recipe.id + `index${index}`"
+        :recipe="recipe"
+      ></recipe-card>
     </template>
     <v-col v-if="recipes.length > 0" cols="12" class="text-center">
       <v-btn v-show="displayCount < recipes.length" @click="loadMore">
