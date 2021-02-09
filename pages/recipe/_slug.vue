@@ -166,6 +166,15 @@ export default {
         }
       })
       .then((res) => {
+        // Replace links in summary with internal links
+        const regex = /<a href=(".+?")/g
+        res.summary = res.summary.replace(regex, (val) => {
+          const recipeID = /\d{4,}/.exec(val)
+          if (recipeID !== null) {
+            val = `<a href="${window.location.origin}/recipe/${recipeID[0]}"`
+          }
+          return val
+        })
         return res
       })
       .catch((err) => {
