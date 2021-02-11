@@ -6,7 +6,7 @@
     <v-col cols="12" sm="8">
       <v-card>
         <v-card-text>
-          <v-btn @click="$router.back()">Back</v-btn>
+          <v-btn color="info" @click="$router.back()">Back</v-btn>
         </v-card-text>
         <v-card-title
           class="recipe-title text-h4 text-md-h3 font-weight-light mb-6 justify-center"

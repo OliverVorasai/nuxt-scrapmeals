@@ -76,6 +76,7 @@ export default {
         light: {
           primary: '#f38181',
           secondary: '#95e1d3',
+          info: colors.teal.accent4,
         },
         dark: {
           primary: colors.blue.darken2,
