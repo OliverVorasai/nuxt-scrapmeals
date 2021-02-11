@@ -20,7 +20,7 @@ export default {
       {
         hid: 'description',
         name: 'description',
-        content: 'Search for your next meal by choosing the ingredients you want!.',
+        content: 'Search for your next meal by choosing the ingredients you want!',
       },
     ],
     link: [
