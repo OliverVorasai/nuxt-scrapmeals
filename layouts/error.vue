@@ -9,7 +9,12 @@
           contain
         ></v-img>
         <v-card-text class="test--primary text-h6">
-          {{ pageNotFoundMessage }}
+          <span v-if="error.message">
+            {{ error.message }}
+          </span>
+          <span v-else>
+            {{ pageNotFoundMessage }}
+          </span>
         </v-card-text>
         <v-card-actions>
           <v-btn class="mx-auto" color="primary" to="/" nuxt>Return Home</v-btn>
