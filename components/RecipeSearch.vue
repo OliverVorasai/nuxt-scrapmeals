@@ -28,7 +28,7 @@
       </v-autocomplete>
     </v-row>
     <v-row justify="center">
-      <v-btn color="success" :loading="recipesLoading" @click="getRecipes"
+      <v-btn color="info" :loading="recipesLoading" @click="getRecipes"
         >Search for Recipes</v-btn
       >
     </v-row>
