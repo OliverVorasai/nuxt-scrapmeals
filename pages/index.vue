@@ -19,6 +19,7 @@
 .main-title {
   font-weight: 400;
   font-family: 'Dosis' !important;
+  font-display: swap;
   -webkit-text-fill-color: $primary;
   -webkit-text-stroke-color: black;
 

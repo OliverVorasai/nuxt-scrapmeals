@@ -41,3 +41,20 @@
     </v-col>
   </v-row>
 </template>
+
+<script>
+export default {
+  head() {
+    return {
+      title: 'About Us',
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: 'Learn about the ScrapMeals project.',
+        },
+      ],
+    }
+  },
+}
+</script>

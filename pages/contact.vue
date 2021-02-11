@@ -98,6 +98,14 @@ export default {
   head() {
     return {
       script: [{ src: 'https://www.google.com/recaptcha/api.js' }],
+      title: 'Contact Us',
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: 'Contact the minds behind the ScrapMeals project.',
+        },
+      ],
     }
   },
   methods: {
