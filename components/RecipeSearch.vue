@@ -8,11 +8,12 @@
         :search-input.sync="search"
         hide-no-data
         hide-selected
-        label="Search for ingredients"
+        label="Enter ingredients"
         :prepend-inner-icon="mdiDatabaseSearch"
         chips
-        small-chips
         multiple
+        filled
+        clearable
       >
         <template #selection="data">
           <v-chip
