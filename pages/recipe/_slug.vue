@@ -5,13 +5,14 @@
     </v-col>
     <v-col cols="12" sm="8">
       <v-card>
-        <v-row justify="center">
-          <v-card-title
-            class="recipe-title text-h4 text-md-h3 font-weight-light"
-          >
-            {{ recipe.title }}
-          </v-card-title>
-        </v-row>
+        <v-card-text>
+          <v-btn @click="$router.back()">Back</v-btn>
+        </v-card-text>
+        <v-card-title
+          class="recipe-title text-h4 text-md-h3 font-weight-light mb-6 justify-center"
+        >
+          {{ recipe.title }}
+        </v-card-title>
         <v-row justify="center">
           <v-img
             :src="recipe.image"
