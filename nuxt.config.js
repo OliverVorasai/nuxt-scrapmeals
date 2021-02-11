@@ -61,6 +61,7 @@ export default {
     imageUrl: process.env.IMAGE_URL,
     key: process.env.KEY,
     recipeLimit: process.env.RECIPE_LIMIT || '50',
+    recaptchaKey: process.env.SITE_RECAPTCHA_KEY,
   },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
