@@ -7,7 +7,11 @@
       ></recipe-card>
     </template>
     <v-col v-if="recipes.length > 0" cols="12" class="text-center">
-      <v-btn v-show="displayCount < recipes.length" @click="loadMore">
+      <v-btn
+        v-show="displayCount < recipes.length"
+        color="info"
+        @click="loadMore"
+      >
         See More Recipes
       </v-btn>
     </v-col>
