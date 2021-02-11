@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-app-bar fixed flat app color="secondary">
+    <v-app-bar absolute flat app color="secondary">
       <v-row justify="center" align="center">
         <v-btn
           v-for="item in items"
@@ -22,9 +22,7 @@
         <nuxt />
       </v-container>
     </v-main>
-    <v-footer app>
-      <span>&copy; {{ new Date().getFullYear() }}</span>
-    </v-footer>
+    <footer-component></footer-component>
   </v-app>
 </template>
 
