@@ -9,7 +9,7 @@
           contain
         ></v-img>
         <v-card-text class="test--primary text-h6">
-          {{ pageNotFound }}
+          {{ pageNotFoundMessage }}
         </v-card-text>
         <v-card-actions>
           <v-btn class="mx-auto" color="primary" to="/" nuxt>Return Home</v-btn>
@@ -33,7 +33,8 @@ export default {
   },
   data() {
     return {
-      pageNotFound: "We're sorry, that page does not seem to exist.",
+      pageNotFound: '404 Not Found',
+      pageNotFoundMessage: "We're sorry, that page does not seem to exist.",
       otherError: 'An error occurred',
     }
   },
