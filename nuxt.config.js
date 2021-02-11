@@ -17,7 +17,11 @@ export default {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' },
+      {
+        hid: 'description',
+        name: 'description',
+        content: 'Search for your next meal by choosing the ingredients you want!.',
+      },
     ],
     link: [
       { rel: 'preconnect', href: 'https://fonts.gstatic.com' },
