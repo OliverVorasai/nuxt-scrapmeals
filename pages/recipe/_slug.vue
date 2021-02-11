@@ -147,25 +147,19 @@ import {
 } from '@mdi/js'
 
 export default {
-  async asyncData({ $config, params }) {
+  async asyncData({ $config, params, $http, error }) {
     const queryString = new URLSearchParams({
       apiKey: $config.key,
       includeNutrition: false,
     })
 
-    const recipe = await fetch(
-      `${$config.recipeSearchUrl}/${
-        params.slug
-      }/information?${queryString.toString()}`,
-      { cache: 'force-cache' }
-    )
-      .then((res) => {
-        if (res.ok) {
-          return res.json()
-        } else {
-          throw new Error(`${res.status} ${res.statusText}`)
-        }
-      })
+    const recipe = await $http
+      .$get(
+        `${$config.recipeSearchUrl}/${
+          params.slug
+        }/information?${queryString.toString()}`,
+        { cache: 'force-cache' }
+      )
       .then((res) => {
         // Replace links in summary with internal links
         res.summary = res.summary.replace(/<a href=(".+?")/g, (val) => {
@@ -178,8 +172,10 @@ export default {
         return res
       })
       .catch((err) => {
-        // TODO: Replace this with popup message
-        console.log(err)
+        error({
+          statusCode: err.statusCode,
+          message: err.response.data.message,
+        })
       })
 
     return { recipe }
