@@ -20,7 +20,8 @@ export default {
       {
         hid: 'description',
         name: 'description',
-        content: 'Search for your next meal by choosing the ingredients you want!',
+        content:
+          'Search for your next meal by choosing the ingredients you want!',
       },
     ],
     link: [
@@ -56,7 +57,7 @@ export default {
   css: ['~/assets/main.css'],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [],
+  plugins: ['~/plugins/foodPreferences.js'],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -78,6 +79,7 @@ export default {
 
   publicRuntimeConfig: {
     autocompleteUrl: process.env.AUTOCOMPLETE_URL,
+    complexSearchUrl: process.env.COMPLEX_SEARCH_URL,
     findByIngredientsUrl: process.env.FIND_BY_INGREDIENTS_URL,
     recipeSearchUrl: process.env.RECIPE_SEARCH_GENERAL_URL,
     imageUrl: process.env.IMAGE_URL,
