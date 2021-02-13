@@ -45,7 +45,7 @@
             <v-select
               v-model="foodPreferences[index]"
               :items="preference"
-              :label="index"
+              :label="index.charAt(0).toUpperCase() + index.slice(1)"
               outlined
               chips
               hide-details="auto"
@@ -108,6 +108,7 @@ export default {
       this.autocompleteLoading = true
 
       // Create query string
+      // NOTE: params are case-sensitive
       const params = new URLSearchParams({
         apiKey: this.$config.key,
         query: val,
@@ -146,6 +147,7 @@ export default {
       this.recipesLoading = true
 
       // Create query string
+      // NOTE: params are case-sensitive
       const params = new URLSearchParams({
         apiKey: this.$config.key,
         includeIngredients: this.selectedValues.toString(),

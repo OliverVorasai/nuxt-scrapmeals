@@ -1,4 +1,4 @@
-const Intolerances = [
+const intolerances = [
   'Dairy',
   'Egg',
   'Gluten',
@@ -12,7 +12,7 @@ const Intolerances = [
   'Tree Nut',
   'Wheat',
 ]
-const Cuisine = [
+const cuisine = [
   'African',
   'American',
   'British',
@@ -41,7 +41,7 @@ const Cuisine = [
   'Vietnamese',
 ]
 
-const Diet = [
+const diet = [
   'Gluten Free',
   'Ketogenic',
   'Vegetarian',
@@ -53,7 +53,7 @@ const Diet = [
   'Primal',
   'Whole30',
 ]
-const Type = [
+const type = [
   'main course',
   'side dish',
   'dessert',
@@ -71,5 +71,5 @@ const Type = [
 ]
 
 export default ({ app }, inject) => {
-  inject('foodPreferences', { Intolerances, Cuisine, Diet, Type })
+  inject('foodPreferences', { intolerances, cuisine, diet, type })
 }
