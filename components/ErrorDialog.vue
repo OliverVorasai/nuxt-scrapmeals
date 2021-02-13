@@ -7,7 +7,7 @@
       <v-card-text>
         <p>We're sorry. There seems to be some bugs in our servers.</p>
         <p>Error Message:</p>
-        <code>{{ errorMessage }}</code>
+        <code>{{ parsedError }}</code>
       </v-card-text>
       <v-divider></v-divider>
       <v-card-actions>
@@ -31,6 +31,18 @@ export default {
     return {
       dialog: false,
     }
+  },
+  computed: {
+    parsedError() {
+      if (this.errorMessage === null) return
+      if (this.errorMessage.response) {
+        return this.errorMessage.response.data.message
+      } else if (this.errorMessage.response) {
+        return this.errorMessage.message
+      } else {
+        return this.errorMessage
+      }
+    },
   },
   watch: {
     errorMessage(val) {

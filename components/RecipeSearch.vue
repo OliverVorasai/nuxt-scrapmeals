@@ -132,7 +132,7 @@ export default {
           this.entries = res
         })
         .catch((err) => {
-          this.errorMessage = err.response.data.message
+          this.errorMessage = err
         })
         .finally(() => {
           this.autocompleteLoading = false
@@ -190,7 +190,7 @@ export default {
             : this.$store.commit('SET_RECIPES', res)
         })
         .catch((err) => {
-          this.errorMessage = err.response.data.message
+          this.errorMessage = err
         })
         .finally(() => {
           this.recipesLoading = false
