@@ -2,9 +2,10 @@
   <v-card class="pa-2" color="primary" dark>
     <!-- Button for Advanced Settings -->
     <v-row justify="end" class="mb-2" no-gutters>
-      <v-btn icon @click="show = !show">
-        <v-icon>{{ mdiCog }}</v-icon>
-      </v-btn>
+      <v-switch
+        v-model="advancedSearch"
+        :label="advancedSearch ? 'Advanced Search On' : 'Advanced Search Off'"
+      ></v-switch>
     </v-row>
     <!-- Autocomplete Component -->
     <v-autocomplete
@@ -35,7 +36,7 @@
     </v-autocomplete>
     <!-- Advanced Settings, positioned below autocomplete -->
     <v-expand-transition>
-      <div v-show="show">
+      <div v-advancedSearch="advancedSearch">
         <v-row>
           <v-col
             v-for="(preference, index) in $foodPreferences"
@@ -52,6 +53,14 @@
             ></v-select>
           </v-col>
         </v-row>
+        <v-row>
+          <v-col cols="12" class="text-center">
+            <p>
+              Disclaimer: Advanced searching may change and reduce the number of
+              results.
+            </p>
+          </v-col>
+        </v-row>
       </div>
     </v-expand-transition>
     <!-- Search Button -->
@@ -66,7 +75,7 @@
 </template>
 
 <script>
-import { mdiCog, mdiDatabaseSearch } from '@mdi/js'
+import { mdiDatabaseSearch } from '@mdi/js'
 
 export default {
   data: () => ({
@@ -78,12 +87,11 @@ export default {
     search: null,
     selectedValues: [],
     // Advanced Settings
+    advancedSearch: false,
     foodPreferences: {},
-    show: false,
     // Popup Message
     errorMessage: null,
     // Icons
-    mdiCog,
     mdiDatabaseSearch,
   }),
   computed: {
@@ -146,24 +154,40 @@ export default {
       // Set loading state
       this.recipesLoading = true
 
-      // Create query string
-      // NOTE: params are case-sensitive
-      const params = new URLSearchParams({
-        apiKey: this.$config.key,
-        includeIngredients: this.selectedValues.toString(),
-        number: this.$config.recipeLimit,
-        limitLicense: true,
-        fillIngredients: true,
-        ...this.foodPreferences,
-      })
+      let params, url
+
+      if (this.advancedSearch) {
+        // Create query string
+        // NOTE: params are case-sensitive
+        params = new URLSearchParams({
+          apiKey: this.$config.key,
+          includeIngredients: this.selectedValues.toString(),
+          number: this.$config.recipeLimit,
+          limitLicense: true,
+          fillIngredients: true,
+          ...this.foodPreferences,
+        })
+        url = this.$config.complexSearchUrl
+      } else {
+        params = new URLSearchParams({
+          apiKey: this.$config.key,
+          ingredients: this.selectedValues.toString(),
+          number: this.$config.recipeLimit,
+          limitLicense: true,
+          ranking: 1,
+        })
+        url = this.$config.findByIngredientsUrl
+      }
 
       // Search for recipes
       this.$http
-        .$get(`${this.$config.complexSearchUrl}?${params.toString()}`, {
+        .$get(`${url}?${params.toString()}`, {
           cache: 'force-cache',
         })
         .then((res) => {
-          this.$store.commit('SET_RECIPES', res)
+          this.advancedSearch
+            ? this.$store.commit('SET_RECIPES', res.results)
+            : this.$store.commit('SET_RECIPES', res)
         })
         .catch((err) => {
           this.errorMessage = err.response.data.message
