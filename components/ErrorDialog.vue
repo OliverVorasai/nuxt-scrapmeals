@@ -37,8 +37,10 @@ export default {
       if (this.errorMessage === null) return
       if (this.errorMessage.response) {
         return this.errorMessage.response.data.message
-      } else {
+      } else if (this.errorMessage.response) {
         return this.errorMessage.message
+      } else {
+        return this.errorMessage
       }
     },
   },
