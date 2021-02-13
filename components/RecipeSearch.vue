@@ -36,7 +36,7 @@
     </v-autocomplete>
     <!-- Advanced Settings, positioned below autocomplete -->
     <v-expand-transition>
-      <div v-advancedSearch="advancedSearch">
+      <div v-show="advancedSearch">
         <v-row>
           <v-col
             v-for="(preference, index) in $foodPreferences"
@@ -199,3 +199,9 @@ export default {
   },
 }
 </script>
+
+<style>
+.theme--dark.v-label {
+  color: white !important;
+}
+</style>
