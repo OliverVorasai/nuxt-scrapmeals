@@ -81,7 +81,7 @@ export default {
   &-leave-active {
     transition: opacity 0.4s linear,
       transform 0.4s cubic-bezier(0.5, 0, 0.7, 0.4);
-    transition-delay: calc(0.1s * (var(10) - var(--i)));
+    transition-delay: calc(0.5s * (0.1s * var(--i)));
   }
 
   &-enter-active {
@@ -96,10 +96,10 @@ export default {
   }
 
   &-enter {
-    transform: translateX(-1em);
+    transform: translateY(-1em);
   }
   &-leave-to {
-    transform: translateX(1em);
+    transform: translateY(1em);
   }
 }
 </style>
