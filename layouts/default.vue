@@ -19,7 +19,7 @@
     </v-app-bar>
     <v-main>
       <v-container>
-        <nuxt />
+        <nuxt keep-alive :keep-alive-props="{ max: keepAliveMax }" />
       </v-container>
     </v-main>
     <footer-component></footer-component>
@@ -47,6 +47,10 @@ export default {
           to: '/contact',
         },
       ],
+      // Max number of possible instances
+      // Home + About + Contact + 1 Recipe
+      // Home + 3 Recipes (Contact with be destroyed in this case)
+      keepAliveMax: 4,
     }
   },
 }
