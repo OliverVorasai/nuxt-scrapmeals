@@ -31,12 +31,11 @@
         <v-card-title class="justify-center text-h5 text-md-h4"
           >Who Made ScrapMeals?</v-card-title
         >
-        <v-card-text
-          >ScrapMeals was made by Oliver Vorasai. My website can be found at
-          <a href="https://olivervorasai.com/" target="_blank" rel="noopener"
-            >www.olivervorasai.com</a
-          ></v-card-text
-        >
+        <v-card-text>
+          ScrapMeals was made by the ScrapMeals Project team. Please use our
+          contact form to get in touch with us:
+          <nuxt-link to="contact">Contact Us</nuxt-link>
+        </v-card-text>
       </v-card>
     </v-col>
   </v-row>
