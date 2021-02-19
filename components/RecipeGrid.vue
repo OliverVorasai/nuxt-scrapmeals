@@ -1,7 +1,12 @@
 <template>
   <div>
     <!-- Grid for Recipe Cards -->
-    <transition-group appear name="slide-in" tag="v-row" class="justify-center">
+    <transition-group
+      appear
+      name="slide-in"
+      tag="div"
+      class="row justify-center"
+    >
       <recipe-card
         v-for="(recipe, index) in recipeList"
         :key="recipe.id + `index${index}`"
