@@ -32,9 +32,15 @@
           >Who Made ScrapMeals?</v-card-title
         >
         <v-card-text>
-          ScrapMeals was made by the ScrapMeals Project team. Please use our
-          contact form to get in touch with us:
-          <nuxt-link to="contact">Contact Us</nuxt-link>
+          ScrapMeals was designed and implemented by Blossom Web Designs. Visit
+          their website at
+          <a
+            href="https://blossomwebdesigns.com/"
+            rel="noopener"
+            target="_blank"
+            aria-label="Link to designer website"
+            >blossomwebdesigns.com</a
+          >
         </v-card-text>
       </v-card>
     </v-col>
